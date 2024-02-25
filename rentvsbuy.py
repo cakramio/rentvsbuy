@@ -5,7 +5,7 @@ import pandas as pd
 def calculate_total_cost(data, years):
   """Calculates the total cost of buying or renting."""
   if "Purchase Price" in data.columns:
-    # Buying cost
+    # Buyinstreg cost
     total_cost = data["Purchase Price"] + \
       data["Down Payment"] + \
       (data["Property Tax"] + data["Maintenance"] + data["Mortgage Payment"]) * years
@@ -29,6 +29,7 @@ def app():
   mortgage_rate = st.number_input("Mortgage Interest Rate (%/year)", min_value=0.0)
   monthly_rent = st.number_input("Monthly Rent ($)", min_value=0.0)
   years = st.number_input("Years of Ownership", min_value=1)
+  mortgage_payment = 0
 
   # Calculate mortgage payment
   if purchase_price > 0:
